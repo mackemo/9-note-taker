@@ -90,7 +90,7 @@ router.delete('/:id', (req, res) => {
                     return res.status(500).json({error: 'Internal Server Error'});
                 }
                 // successfully writing out updated notes
-                res.status(204);
+                res.sendStatus(204);
             });
     
         } catch (err) {

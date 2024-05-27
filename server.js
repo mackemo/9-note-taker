@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true}));
 
 // serving public files
 app.use(express.static('public'));
-// using api as all api routes
+// using api as all routes
 app.use('/api', api);
 
 // send index.html and notes.html files when there is get request
