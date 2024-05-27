@@ -63,7 +63,33 @@ router.post('/', (req, res) => {
 
 
 router.delete('/', (req, res) => {
+    const noteId = req.params.id;
+
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading db.json:', err);
+            return res.status(500).json({error: 'Internal Server Error'});
+        }
+
+        try {
+            let notes = JSON.parse(data);
     
+            notes = notes.filter(note => note.id !== noteId);
+    
+            fs.writeFile('./db/db.json', JSON.stringify(notes, null, '\t'), (err) => {
+                if (err) {
+                    console.error('Error writing to db.json:', err);
+                    return res.status(500).json({error: 'Internal Server Error'});
+                }
+    
+                res.status(204);
+            });
+    
+        } catch (err) {
+            console.error('Error parsing db.json:', err);
+            res.status(500).json({error: 'Internal Server Error'});
+        }
+    });
 });
 
 module.exports = router;
