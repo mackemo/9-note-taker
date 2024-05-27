@@ -4,7 +4,6 @@ const { v4: uuidv4 } = require('uuid');
 
 // all paths for notes router (get, post, delete)
 
-
 // get route for reading file with notes
 router.get('/', (req, res) => {
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
