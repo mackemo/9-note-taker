@@ -5,7 +5,7 @@ const path = require('path');
 const api = require('./routes/index');
 
 // labeled port
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 // creates instance of route
 const app = express();
