@@ -19,6 +19,7 @@ The ninth challenge assignment from a bootcamp where the task was to complete th
 -[Acknowledgement](#Acknowledgement)
 -[Questions](#Questions)
 
+<img src="./public/assets/images/image.png"/>
 
 ## Process
 The process included creating a routes folder with index.js and notes.js files and a server.js file on its own. The index.js file required importing express router and the notes.js file. A router.use method was used to specify the notes.js file as the router for the path /notes. The notes.js file required importing the express router, the fs package for reading and writing files, and the uuid package for specific ids for each notes. In the notes.js file, route paths for get, post, and delete were made. The get route included reading the db file, try/catch block for returning parsed data as json and catching any errors. The post route included varibales for title and text, reading db file. try/catch block for pushing new notes to notes array and writing updated notes to db file. Also catching any errors. The delete route is similar to the others with the try/catch block, but includes an id variable and filtering out each note that matches deleted note id and then writing to the db file wth the updated notes array. In the server.js file imported express, path, all the routes, labeled a port, and included middleware for converting data. Two get paths were made for the original index.html file and an additional file for the notes.html.
